@@ -1,0 +1,41 @@
+* csce 464
+** Course Info
+*** Instructors
+**** Dr. Radu Stoleru
+***** Office: 311C HRBB
+***** Email: stoleru@cse.tamu.edu
+***** Office hours: TBD
+**** Chen Yang
+***** Office: 324 HRBB
+***** Email: iamyangchen@gmail.com
+***** Office hours: TBD
+*** Ecampus
+**** class material
+**** homework submissions
+**** will use piazza too
+*** Each class
+**** 5-10 min recap Q&A session at beginning of class, hosted by TA
+*** Assignments
+**** Paper and pencil questions
+**** Simulations
+**** Hardware experiments
+*** Do's and Don'ts
+**** Do's
+***** Attend class
+***** Read handouts
+***** Start working as soon as assignments are out
+***** Check submissions before submission
+***** Understand solutions to the assignment questsion
+**** Dont's
+***** *DO NOT CHEAT*
+***** Do not wait until the last minute
+*** Textbook
+**** Distributed in class
+**** Lecture notes supplemented by papers from conferences and journals
+*** Grading
+**** Assignments 45%
+**** Midterm 25%
+**** Final 25%
+**** Participation/Attendance 5%
+*** Late submissions
+**** minus 1/5 of the grade per day

@@ -39,3 +39,8 @@
 **** Participation/Attendance 5%
 *** Late submissions
 **** minus 1/5 of the grade per day
+** Preliminaries
+*** Programming Assignments
+**** In C language
+**** Glomosim network simulator
+**** nesC language for TinyOS

@@ -37,6 +37,12 @@
 **** Midterm 25%
 **** Final 25%
 **** Participation/Attendance 5%
+*** Exams
+**** Closed book
+**** Closed notes
+**** Prefer multiple choice questions or brief short answer
+**** Final is not cumulative but most of it will be second half material
+***** At most three questions from first half of semester
 *** Late submissions
 **** minus 1/5 of the grade per day
 ** Preliminaries

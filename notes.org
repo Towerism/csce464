@@ -50,3 +50,112 @@
 **** In C language
 **** Glomosim network simulator
 **** nesC language for TinyOS
+** (Lecture 1) Wireless Communication and Mobility
+*** Aspects of mobility
+**** user mobility: users communicate "anytime, anywhere, with anyone"
+**** device portability: devices can be connected anytime, anywhere to the netwokr
+*** Wireless vs mobile
+**** A desktop is neither
+**** Notebook is not wireless, but is mobile
+**** Smartphone is both
+*** Need the integration of wireless networks or mobility mechanisms into existing fixed networks:
+**** telephone network -> cellulary telephony (eg GSM)
+**** LAN -> Wireless LANs (eg IEEE 802.11)
+**** Internet -> Mobile IP
+*** Wireless Enabled Devices
+More and more devices are becoming wireless
+**** Satellite communication
+***** Only satellite communication has complete coverage across the worldi
+***** GPS
+**** Wireless "Last Mile": WiMAX
+***** something something cell tower
+**** Wireless sensors
+***** Introduced in early 2000s
+***** Really small embedded devices
+***** Hardware
+***** Headless operation after installing the software
+****** Software is the OS, Firmware, Subroutines, all of it
+***** Sensor networks: "Internet of things"
+**** RFID
+***** Tags
+**** Medical Implants
+***** Something something, saving lives
+**** Vehicular communication
+***** In the future, driverless cars
+***** Communication with towers and other cars
+****** e.g. propagating signal that an accident has occurred
+****** Security issues?
+****** Dedicated short-range communication (DSRC)
+**** Software Defined Radio (SDR)
+***** Emits a single signal at a single frequency
+***** All logic is embedded in the hardware
+****** Save energy
+****** Save time
+***** Application
+****** Cognitive Radios -> Dynamic Spectrum Access
+*** History of Wireless Communication
+**** Many people in history used light for communication
+***** heliographs, flags ("semaphore")
+***** 150 BC smoke signals for communication (Greece)
+***** 1794, optical telgraph, Claude Chappe
+**** Electromagnetic waves are of special importance:
+***** 1831 Faraday demonstrates electromagnetic induction
+***** J Maxel (1831-79)
+****** theory of electromagnetic fields, wave equations (1864)
+***** H Hertz (1857-94)
+****** Demonstrates with an experiment the wave character of electrical transmission through space (1886)
+***** 1895 Guglielmo Marconi
+****** First long wave transmission (infrared)
+****** First wireless telegraph
+***** 1907 Commercial transatlantic connections
+****** huge base stations (30 to 100m high antennas)
+***** 1915 Wireless voice trans mission new york to San Franciso
+***** 1920 Discovery short waves by Marconi
+****** reflection at the ionosphere
+****** smaller sender and receiver due to vacuum tubes
+******* The smaller the frequency the smaller you can make the antennas
+******* However the higher you go in frequency (past optical), the more the communication becomes directional
+******* The lower you go, the more omnidirectional the signal
+***** Lots of development in cellular communication since then
+***** 1992 Deployment of GSM
+***** 2010 LTE standards mature, first trials
+*** Wireless Systems
+**** Cellphones
+**** Satellites
+**** Cordless phones
+**** Wireless LANs
+*** Applications of RF Communication
+**** Limited spectrum must be shared among various applications
+**** Spectrum access typically regulated by the government
+***** All of the spectrum has been allocated
+****** Our devices must on occassion switch frequencies
+****** Software defined radios (SDR) sense multiple parts of the spectrum
+******* They can communicate on the part of the spectrum that isn't used very well
+******* At that point we are _secondary users_.
+******* Once a _primary user_ begins communicating our device must relinquish the requency
+*** Wired networks: Internet
+**** History
+***** 1969: First ARPANET deploted
+***** 1974: RFC 675 - Specification of Internet Transmission Control Program
+***** Early 1980s: TCP/IP deployed
+***** Wireless links often at the "edge" of the internet
+****** The dawn of wireless communication necessitated the rethinking of communication protocols to deal with this new unreliable medium
+*** Communication Protocols
+**** Layerted for simplity of design
+**** 313 concepts on networking
+*** Wireless Network Architectures
+**** Infrastructure-based networks (IBN)
+- Typically there is a backbone network
+  - Can be a go-between for the client and the actual network
+**** Infrastructure-less (ad hoc) networks
+- The clients connect directly through one-another
+- There is no backbone network
+- The actual network is formed by the interconnections of all the clients
+**** Hybrid networks
+- There can be an ad hoc network ultimately connected to a infrastructure-based network
+- In this case, the clients in the ad hoc network would have some indirect connection to the internet
+  - If the internet in this case is a IBN
+**** Wireless Protocols
+- Many apps and challenging problems
+  - significant research and development activity
+- THis course provides an intro to some of these issues

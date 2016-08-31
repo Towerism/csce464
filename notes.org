@@ -159,3 +159,101 @@ More and more devices are becoming wireless
 - Many apps and challenging problems
   - significant research and development activity
 - THis course provides an intro to some of these issues
+** Protocols and Network Architectures
+- *Protocol* a set of rules and conventions
+- By enforcing that communicating parties adhere to common *protocol*,
+  communication is possible
+- A *Network Architecture* is a *structured set of protocols* that implement the
+  exchange of information between computers
+*** The Levels of Abstraction
+- Multiple levels of communication abstractions have been defined by
+  standardization bodies
+- Each level is enforced by a corresponding protocol
+- Each level uses the abstract services of the level below
+- Abstraction achieves separation of concerns
+  - A protocol needn't know how the lower-level abstractions are implemented and
+    what the higher level asbtractions are
+**** Layered Network Architecture
+- In a *Layered Network Architecture*, the services are grouped in a hierarchy
+  of layers.
+  - A protocol at _layer N_ uses only services of _layer N-1_
+  - A protocol at _layer_N_ provides services only to _layer N+1_
+**** Service Primitives
+- Assume that some protocol implements service 'X'.
+- Recall: A layer N+1 protocol entity sees the lower layers only as an abstract
+  service provider
+- In the letter example, the letter is the primitive
+- The protocol is the postal service
+**** (Un-)Acknowledged Service
+- A sender cannot assume that a message is received
+- Without acknowledgement from the receiver, we have an unconfirmed service
+*** Protocol Architectures
+**** Few relevant protocols today
+- OSI Reference Model
+- TCP/IP Suite
+- ATM Protocol Stack
+**** OSI 
+***** defines seven layers
+A leaf node in a network may only need layers 1 to 3. But higher level nodes
+typically utilize the whole stack.
+****** 7: Application
+- Provides network access to application programs
+- Example: File transfer, Email
+****** 6: Presentation
+- Data conversion into application format
+- Encryption/decryption
+- Secure sockets
+****** 5: Session
+- Support the dialog between cooperating application programs
+- Session management, synchronization
+- Example: RPC
+****** 4: Transport
+- Controls delivery of data between hosts
+- Connection management, error contro. flow control, multiplexing
+- Example: TCP, UDP
+****** 3: Network
+- Moves packets inside the network
+- Performs routing, addressing, switching, congestion control
+- Example: IP
+****** 2: Data Link
+- Reliably transfers frames over a link
+- Performs synchronization, error control, flow control
+- Example: PPP
+****** 1: Physical
+- Converts bits into electrical or optical signal
+- Transmits these signals over the hardware communication medium
+- Example: RS-232
+***** Layers and Encapsulation
+- Higher level layers will pass on a header with some info down to lower layers
+- The header, as it is passed down from higher level layers to lower level
+  layers, typically accumulates more and more information as it is relevant to
+  the layer beneath it
+- Once you get to the physical layer, the header is interpreted as a sequence of bits
+***** TCP/IP Suite
+- The TCP/IP protocol suite was first defined in 1974
+- The TCP/IP protocol suite is the protocol architecture of the *Internet*
+- The TCP/IP suite has four layers:
+  - Application
+  - Transport,
+  - Internet,
+  - Network and Interface
+**** Network Protocol Analysis
+***** There are 3 methods to analyze network protocols
+- Mathematical Analysis
+- Network simulators
+- Testbed
+***** Examples of network simulators
+  - ns-2
+  - GloMoSim/QualNet
+  - OpNet
+- NetSim
+***** GloMoSim
+- (Global Mobile Information System Simulator)
+- A scalable *simulation environment*
+- Supports *Wired* and *Wireless* network
+- *Layered* approach
+- Standard *APIs*
+- Parallel *discrete-event* simulation
+****** Install and run
+- =cp /home/chen/build.sh ./=
+- then run =bash ./build.sh=

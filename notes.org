@@ -257,3 +257,74 @@ typically utilize the whole stack.
 ****** Install and run
 - =cp /home/chen/build.sh ./=
 - then run =bash ./build.sh=
+** The Wireless Link
+*** Frequencies for Communication
+- VHF (30 Mhz) to UHF (300 Mhz) comprises the mobile radio spectrum
+- UHF (300 Mhz) to SHF (30 Ghz) comprises most the wireless LAN spectrum
+**** Abbreviations
+- VLF = Very Low Frequency
+- MF = Medium Frequency
+- VHF = Very High Frequency
+- UHF = Ultra High Frequency
+- SHF = Super High Frequency
+- EHF = Extra High Frequency
+- UV = Ultraviolet
+*** Wireless Transmission
+- Processing through the source, the channel, and finally at the receiver
+  - Information Source, source encoder, channel encoder, modulator, channel,
+    demodulator, channel decoder, source decoder, information sink
+**** Packetization
+- Bits obtained from source coding are divided into chunks (i.e. packets)
+**** Encapsulation
+- Adding headers by various network layers
+**** Error Control Codes
+- Errors may occur during transmission over the wireless channel
+- Error control codes (ECC) can be used to detect and/or correct such errors
+- Error control capabilities of a code depend on the redundancy introduced by
+  the code
+- (n, k) code: k bits of data, n-k checkbits
+- ECC may not be able to correct or detect all errors
+- Higher layers cannot rely on lower layers to detect/correct all errors
+- Different protocol layers incorporate different ECC mechanisms, depending on
+  the reliability requirements
+- Ultimate responsibility for reliability at the application layer
+- Error probability is a function of transmit power, which is constrained
+- ECC incurs overhead, which reduces the effective data rate
+- What is the best possible reliable rate? optimization problem
+***** Hamming Distance
+- *Code* = set of codewords
+- *Hamming distance* between two codewords = number of bits in which they differ
+- *Distance of a code* = minimum Hamming distance between two codewords
+****** Examples
+******* (7,4) Single Error Correcting (SEC) Code
+  - The properties of the code allows the receiver to correct a single bad bit
+  - Otherwise a decoding error (up to 2 bit errors), or an undetected error
+  - May be used to detect up to 2 bit errors (but correct no errors)
+    - More than 2 errors may not be detected
+  - In general, the higher the redundancy, the higher the detecting
+******* (8,4) Single Error Correcting-Double Error Detecting (SECDEC) error
+- Correct single bit errors
+- Detect 2 bit errors (can differentiate between 1 and 2 bit errors)
+- More than 2 errors may result in decoding error or undetected error
+- Code may be used to detect up to 3 bit errors (but correct no errors)
+  - More than 3 errors may not be detected
+**** Modulation
+- Transmission must use appropriate band of spectrum
+- Modulation can facilitate the use of appropriate band
+***** Example
+****** Binary pulse amplitude modulation (Binary PAM)
+- Pulse b(t) of duration T
+- Consider first bit
+- *Baseband signal* _superimposed_ on the carrier
+  - baseband is the signal you multiply -1 or 1 by to indicate whether you are
+    transmitting a 1 or a 0 bit
+    - typically you multiply by -1 to send 0 and 1 to send a 1
+- Multiply the *baseband* signal by *carrier*
+  - baseband is what you want to transmit, and the carrier is how you transmit it
+- You obtain the modulated signal
+****** Fourier Transform
+- You can use it to transform a signal in the frequency domain to the time
+  domain and vice versa
+- It says that given a crazy curve representing a signal in the time domain, you
+  can get all the different frequencies present by transforming it into the
+  frequency domain using a fourier transform

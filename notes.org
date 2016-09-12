@@ -269,15 +269,16 @@ typically utilize the whole stack.
 - SHF = Super High Frequency
 - EHF = Extra High Frequency
 - UV = Ultraviolet
-*** Wireless Transmission
+**** Wireless Transmission
 - Processing through the source, the channel, and finally at the receiver
   - Information Source, source encoder, channel encoder, modulator, channel,
     demodulator, channel decoder, source decoder, information sink
-**** Packetization
+***** Transmitter
+****** Packetization
 - Bits obtained from source coding are divided into chunks (i.e. packets)
-**** Encapsulation
+****** Encapsulation
 - Adding headers by various network layers
-**** Error Control Codes
+****** Error Control Codes
 - Errors may occur during transmission over the wireless channel
 - Error control codes (ECC) can be used to detect and/or correct such errors
 - Error control capabilities of a code depend on the redundancy introduced by
@@ -291,28 +292,28 @@ typically utilize the whole stack.
 - Error probability is a function of transmit power, which is constrained
 - ECC incurs overhead, which reduces the effective data rate
 - What is the best possible reliable rate? optimization problem
-***** Hamming Distance
+******* Hamming Distance
 - *Code* = set of codewords
 - *Hamming distance* between two codewords = number of bits in which they differ
 - *Distance of a code* = minimum Hamming distance between two codewords
-****** Examples
-******* (7,4) Single Error Correcting (SEC) Code
+******** Examples
+********* (7,4) Single Error Correcting (SEC) Code
   - The properties of the code allows the receiver to correct a single bad bit
   - Otherwise a decoding error (up to 2 bit errors), or an undetected error
   - May be used to detect up to 2 bit errors (but correct no errors)
     - More than 2 errors may not be detected
   - In general, the higher the redundancy, the higher the detecting
-******* (8,4) Single Error Correcting-Double Error Detecting (SECDEC) error
+********* (8,4) Single Error Correcting-Double Error Detecting (SECDEC) error
 - Correct single bit errors
 - Detect 2 bit errors (can differentiate between 1 and 2 bit errors)
 - More than 2 errors may result in decoding error or undetected error
 - Code may be used to detect up to 3 bit errors (but correct no errors)
   - More than 3 errors may not be detected
-**** Modulation
+****** Modulation
 - Transmission must use appropriate band of spectrum
 - Modulation can facilitate the use of appropriate band
-***** Example
-****** Binary pulse amplitude modulation (Binary PAM)
+******* Example
+******** Binary pulse amplitude modulation (Binary PAM)
 - Pulse b(t) of duration T
 - Consider first bit
 - *Baseband signal* _superimposed_ on the carrier
@@ -322,9 +323,102 @@ typically utilize the whole stack.
 - Multiply the *baseband* signal by *carrier*
   - baseband is what you want to transmit, and the carrier is how you transmit it
 - You obtain the modulated signal
-****** Fourier Transform
-- You can use it to transform a signal in the frequency domain to the time
+******* Fourier Transform
+- You can use it to *transform a signal in the frequency domain to the time*
   domain and vice versa
 - It says that given a crazy curve representing a signal in the time domain, you
   can get all the different frequencies present by transforming it into the
   frequency domain using a fourier transform
+******* Energy
+- take the absolute of the time domain, square it, and integrate it from t1 to t2
+- This yields the energy
+******* Power
+- Divide the energy by time, and take the limit of time as it approaches
+  infinity (used when you are in the time domain)
+- Conceptually, power is how much energy is available in a very short period of
+  time
+- *Power spectral density* measure of contribution of frequency f to power of
+  signal x(t) (used when you are in the frequency domain)
+******** Decibel Notation
+- Power in *decibel watt/milliwatt* notation
+- Power in dBW = 10logP
+  - Where P is in watts?
+- Power in dBm = 10logP
+  - Where P is in milliwats
+- Note log is in base 10
+****** Propagation
+- Is received signal identical with one sent?
+******* Noise and Interference
+- The signal received by the reciever is a composite of
+  - Signal of interest
+  - Noise
+  - Interference (information of interest to some other receiver)
+******** Noise Model
+- Additive White Gaussian Noise (AWGN) Process
+  - See this slide for an example converting power to dBm
+- Additive
+  - Noise added to the signal of interest
+- White
+  - Noise power spectral density is flat, independent of f
+- Process
+  - Noise at each t is a random variable
+- Gaussian
+  - n(t) = noise at time t is a gaussian random variable
+********* Receiver
+********** Received signal
+  - Assum single path from transmitter to reciever with ero delay
+  - awgn channel with noise power spectral density $N_0/2$
+    - $r(t) = aw_i(t) + n(t)$
+********** Energy per Bit in Received Signal
+********** Demodulation
+- random stuff happens, and people are happy, because stuff just works
+- Note: error probability goes up the lower the energy per bit
+*********** Binary PAM
+- Errors occur during transmission
+- *Packet error probability* function of *bit error probability* and *packet size*
+- Error probability can be reduced by increasing energy per bit
+  - Higher transmision power and/or
+  - Lower transmission rate
+    - trade-off between transmission rate and error probability
+- *Similar conclusions hold for other modulation schemes*
+*********** Throughput Limit for a Wireless Link
+- Performance of a traffic flow (depending on traffic):
+  - Throughput 
+  - Packet loss rate
+  - Delay
+  - Jitter
+- Shannon (1940) introduced *channel capacity*:
+  - *Best achievable rate of reliability information delivery*
+  - Measured in Bits/sec
+************ Channel capacity
+- AWGN channel with bandwidth W
+  - $C = W\log_2(1+P/(N_0W))$
+    - It's different if there are 1 or more interferers
+  - The P dib by N_0 imtes W is the signal to noise ratio
+  - Capacity is in bits/sec (W is bandwith in Hz). P is received signal power
+  - SNR in dB = 10log(signal power / noise power)
+  - _THe higher SNR the more reliable the signal_
+************ Transmission range
+- Where does a link exist or break?
+  - wherever it does
+******** Channel Model
+- Transmitted signal x(t)
+- Received signal r(t)
+  - $r(t) = \sum_ia_ix(t-\tau_i)+n(t)+i(t)$
+********* Path Gain and Path Loss
+- *Path gain* is ratio of received power and transmit power
+- Path loss is 1 over path gain
+- Path loss PL(db) = 10 log (path loss)
+- Received power < transmit power
+********* Path Loss Models
+********** Large scale path loss:
+  - Captures average channel conditions
+*********** Free space propagation model
+- Valid only for distances $d$ and $d_0$ such that $d \geq d_0$
+  - $P_r(d) = P_r(d_0)d^2_0/d^2$
+- Receieved power is proportial to the sending power and is inversely
+  proportional to the square of the distance
+- Received power $P_r = KP_s/d^2$
+- $PL(d)=PL(d_0)+20\log(d/d_0)$
+********** Small scale path loss:
+  - Captures small scale variations due to fading

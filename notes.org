@@ -431,3 +431,84 @@ typically utilize the whole stack.
 - $PL(d)=PL(d_0)+20\log(d/d_0)$
 ********** Small scale path loss:
   - Captures small scale variations due to fading
+** Distributed Multiple Access Control
+*** Medium Access Control
+- Depends on
+  - Channel properties
+  - Physical capabilities
+    - Single interace
+    - One packet at a time
+    - One channel at a time
+    - Antenna diversity
+- Here we assume single interface, single channel, single antenna, one packet at
+  a time
+*** Introduction
+*** Medium Access Control Protocols
+- *Assumption* Propagation delay small compared with transmission time
+**** Archetypes
+***** Centralized
+    - A designated host is responsible for coordinating access
+    - Not of immediate interest to us
+***** Distributed
+    - No single host responsible for access
+**** Coordinated Access
+- Each host is somehow "scheduled" to transmit in certain intervals of time
+- Example: token ring
+- Schedule between simultaneous transmissions
+**** Random access
+- Each host "randomly" decides when to transmit
+**** Basic
+- Based on Aloha
+- Simple rule
+  - Transmit packet immediately (if not transmitting another packet already)
+  - "Unsynchronized time slots"
+***** Shortcomings
+- No provision for reliability
+- No detection of "collisions"
+***** Overcome with synchronized time slots
+- Synchronized time slots as opposed to unsynchronized yields higher probability
+  of successful transmission, about twice as higher.
+- Probability of transmission for synchronized (n is how many slots, p is the
+  probability that one slot will transmit)
+  - $np(n-p)^{n-1}$
+- Probability of transmission for unsynchronized (n is how many slots, p is the
+  probability that one slot will transmit)
+  - $np(n-p)^{2(n-1)}$
+**** Carrier Sensing Multiple Access (CSMA)
+- Listen-before-you-talk
+- A host may transmit only if the channel is sensed as idle
+***** Energy Detection
+- A potential implementation
+  - sample the signal periodically
+  - sum the square of the sampled values
+  - if sum exceeds threshold, signal present
+- Requires non-zero delay to correctly sense the channel status
+  - This incurs overhead
+- *Another possibility* detect transition from idle to busy, and vice-versa,
+  instead of presence of a signal.
+****** Approximation
+******* Carrier Sense (CS) threshold Pcs
+- If *received power* < _CS threshold_ ==> CHANNEL IDLE
+- Else CHANNEL BUSY
+- Energy detection accuracy also affected by noise and interference
+- Energy detection non-deterministic due to presence of noise
+- The approximation assumes that if received signal exceeds Pcs, the
+  transmission will always be sensed.
+******** Impact of CS Thresold on Interference
+- Setting the threshold lower results in lower interference
+******* Feature Detection
+- Detect a "well-known" waveform to know if a transmission is taking place
+  - Preamble
+- Trade-off between complexity and accuracy of sensing with energy  detection
+- *Our discussion will assume the approximate characterization of energy
+  detection*
+******** Trade-off
+- Large carrier sense threshold
+  - More transmitters
+  - Greater spatial reuse & more interference
+- Trade-off between *spatial reuse* and *interference*
+****** Hidden Terminals
+- Hiding terminals from each other causes the terminals hidden from each other
+  to activate the idle state of the other. This causes huge interference for
+  nodes that aren't hidden from each other but are communicating with nodes
+  which are may or may not be hidden from each other

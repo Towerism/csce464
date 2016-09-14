@@ -1,3 +1,4 @@
 *.pdf
 /*.tex
 /ltxpng
+/auto/notes.el

@@ -50,6 +50,15 @@
 **** In C language
 **** Glomosim network simulator
 **** nesC language for TinyOS
+** Homework Notes
+*** HW2 Notes
+- Channel Capacity $C$
+  - $C = W\log_2(1+P/(N_0W))$
+  - the ratio is the Signal to Noise Ratio
+**** Problem 2
+- From the slides
+- $P_r(d)=P_r(d_0)d^\alpha_0/d^\alpha$
+- Do algebraic manipulation
 ** (Lecture 1) Wireless Communication and Mobility
 *** Aspects of mobility
 **** user mobility: users communicate "anytime, anywhere, with anyone"

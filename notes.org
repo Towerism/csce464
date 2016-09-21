@@ -59,6 +59,24 @@
 - From the slides
 - $P_r(d)=P_r(d_0)d^\alpha_0/d^\alpha$
 - Do algebraic manipulation
+**** Problem 3
+- rate of reliable information delivery is the channel capacity in bits/sec.
+- $\text{SINR}=\frac{P_r}{I+N}$
+  - The terms $P_r$ and $(I+N)$ need to be in the same terms.
+- Need to solve for $P_r$ using everything given
+  - distances
+  - power transmitted
+  - bandwidth
+  - channel capacity equation
+- Let $P_B$ denote the percentage of time that $B$ is receiving. Then $P_R =
+  1-P-B$ is the percentage of time that $B$ is transmitting. Futhermore we have
+  $PC_{AB}=(1-P)C_{BC}$. Where $C_{XY}$ is the channel capacity from $X$ to $Y$.
+**** Problem 4
+- You only have to change $\alpha$ rather than having to change log-distance
+  path-loss at $d_0$.
+- Notice the 20.0 term in the path-loss += statements. This can be broken down
+  to $2\times10.0$. Then it is clear that the $2$ can be mapped to $\alpha$.
+- Plot the with/with-out variance simulations on the same graph.
 ** (Lecture 1) Wireless Communication and Mobility
 *** Aspects of mobility
 **** user mobility: users communicate "anytime, anywhere, with anyone"
@@ -431,6 +449,7 @@ typically utilize the whole stack.
 - $PL(d)=PL(d_0)+20\log(d/d_0)$
 ********** Small scale path loss:
   - Captures small scale variations due to fading
+  - 
 ** Distributed Multiple Access Control
 *** Medium Access Control
 - Depends on

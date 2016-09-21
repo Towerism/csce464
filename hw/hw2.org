@@ -1,0 +1,35 @@
+#+AUTHOR: Martin Fracker
+#+TITLE: HW2
+
+1) Problem 1
+   1) Conversion: $n \text{ mW}=10\log_{10}(n) \text{ dBm}$. Exponential
+      transformations in milliwats result in linear transformations in the
+      logarithmic. In this case the linear slope as the exponent of 2 increases by
+      1 is about 3.0102
+      1) $0.125\text{ mW}=-9.0309\text{ dBm}$
+      2) $0.25\text{ mW}=-6.0206\text{ dBm}$
+      3) $0.5\text{ mW}=-3.0102\text{ dBm}$
+      4) $1\text{ mW}=0\text{ dBm}$
+      5) $2\text{ mW}=3.0102\text{ dBm}$
+      6) $4\text{ mW}=6.0206\text{ dBm}$
+      7) $8\text{ mW}=9.0309\text{ dBm}$
+   2) 
+      1) $-105\text{ dBm}=10^{\frac{-105\text{ dBm}}{10}}\text{ mW}=3.1623*10^{-11}
+         \text{ mW}$
+      2) A microwave oven is 16 orders of mangitudes more powerful than the typical
+         RF radio sensitivity.
+2) Problem 2
+   1) 
+      1) $P_r(d)=P_r(d_0)\frac{d^\alpha_0}{d^\alpha}$
+      2) $\frac{1}{P_r(d)}=\frac{1}{P_r(d_0)\frac{d^\alpha_0}{d^{\alpha}}}$
+      3) $\frac{P_s(d)}{P_r(d)}=\frac{P_s(d_0)}{P_r(d_0)\frac{d^\alpha_0}{d^{\alpha}}}$
+      4) $\log_{10}(\frac{P_s(d)}{P_r(d)})=\log_{10}(\frac{P_s(d_0)}{P_r(d_0)\frac{d^\alpha_0}{d^{\alpha}}})$
+      5) $10\log_{10}(\frac{P_s(d)}{P_r(d)})=10\log_{10}(\frac{P_s(d_0)}{P_r(d_0)}\frac{d^\alpha}{d^{\alpha}_0})$
+      6) $PL(d)=10\log_{10}(\frac{P_s(d_0)}{P_r(d_0)})+10\log_{10}(\frac{d^\alpha}{d^{\alpha}_0})$
+      7) $PL(d)=PL(d_0)+10\log_{10}(\frac{d^\alpha}{d^{\alpha}_0})$
+      8) $PL(d)=PL(d_0)+10\log_{10}((\frac{d}{d_0})^\alpha)$
+      9) $PL(d)=PL(d_0)+10\times\alpha\times\log_{10}(\frac{d}{d_0})$
+   2) 
+      1) $PL(d)=40\text{ dB}+10\times 2.2 \times\log_{10}(2)=46.6227\text{ dB}$
+      2) $PL(d)=40\text{ dB}+10\times 2.2 \times\log_{10}(4)=53.2453\text{ dB}$
+

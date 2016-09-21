@@ -499,7 +499,7 @@ typically utilize the whole stack.
 ***** Energy Detection
 - A potential implementation
   - sample the signal periodically
-  - sum the square of the sampled values
+  - sum the square of the sampled values (integration)
   - if sum exceeds threshold, signal present
 - Requires non-zero delay to correctly sense the channel status
   - This incurs overhead

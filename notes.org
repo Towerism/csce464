@@ -526,8 +526,75 @@ typically utilize the whole stack.
   - More transmitters
   - Greater spatial reuse & more interference
 - Trade-off between *spatial reuse* and *interference*
-****** Hidden Terminals
+****** Hidden and exposed terminals
 - Hiding terminals from each other causes the terminals hidden from each other
   to activate the idle state of the other. This causes huge interference for
   nodes that aren't hidden from each other but are communicating with nodes
   which are may or may not be hidden from each other
+- Collisions may occur despite carrier sensing
+- Smaller carrier sensing can help
+- But increases the incidence of *exposed terminals*
+- Cannot eliminate all collisions using carrier sensing
+- Trade-off between hidden and exposed terminals
+- Optimal carrier sense threshold function of network "topology" and traffic
+  charateristics
+****** Collisions
+******* Collision Detection
+- *Eternet* uses carrier sensing and collision detection (CSMA/CD)
+- Transmitter also listens to the channel
+- Mismatch between trasmitted and received signal indicates mismatch
+- Stop transmitting immediately once collision is detected
+  - *Reduces time lost on a collision*
+******* Collision Detection in Wireless Networks
+- _Ultimately it is not possible_
+- Remember, no single layer is responsible for reliable communication.
+  Ultimately the application is responsible.
+- Receiving while transmitting: Received signal dominated by transmitted signal
+- Collision occurs at receiver, not the transmitter
+- Collision detection difficult at the trasmitter without feedback from the
+  receiver
+- The *only* way the transmitter knows that a transmission was received
+  successfully, the receiver must send back an _acknowledgement_
+  - Negative acknowledgement can be employed so the transmitter can be signaled
+    to retransmit
+******* Collision Avoidance
+- Use mechanisms to reduce occurrence of collisions
+- For collisions to occur, transmission must *overlap* in time
+- Two types of overlapping transmissions
+  - Simultaneous
+  - Concurrent
+******* Concurrent Transmission
+- Overlapping transmissions, whch are not *simultaneous* are said to be
+  _concurrent_
+- Simulatenous and concurrent transmissions desirable if they do not cause too
+  much interference to ongoing transmissions
+- Trade-off between *spatial reuse* and *interference*
+******* Reliability 
+- Forward error correction
+- Retransmissions
+- Stop-and-wait protocl
+  - Send a packet
+  - Start timeout interval, and
+  - Wait for acknowledge
+  - If no acknowledge within timeout interval, retransmit
+******* Overhead of collisions
+- Function
+  - Cost of collisions
+  - Frequency of collisions
+******* A Mechanism to reduce collision cost
+- "Reserve" the wireless channel before transmitting data 
+- Send short control packets for reservation
+- Collision may occur for control packets, but they are short which implies
+  lower collision cost
+- Once channel reserved, data transmission (hopefully) reliable
+******* RTS-CTS Control Packets
+- Rather than send all say 1500 packets at once, we wait for a RTS packet that
+  can request say 30 packets at a time.
+- RTS = Request-To-Send
+- CTS = Clear-to-Send
+******** Exchange example
+- A sends TS to B
+- Duration of proposed transmission specified in RTS
+- B responds with CTS to acknowledge receipt of RTS
+- Host A sends data to B on receipt of CTS
+- Other hosts overhearing RTS keep quiet for duration of proposed transmission 

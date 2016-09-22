@@ -59,4 +59,9 @@
       1) $P(1.726\times10^{7})=(1-P)(1.55\times10^{7})$
       2) $P = 47.31\%$
       3) $P-1 = 52.69\%$
+   5) Compute the throughput from A to C
+      1) $T_{AB}=C_{AB}P=8165706\text{ bps}$
+      2) $T_{BC}=C_{BC}(P-1)=8166950\text{ bps}$
+      2) $T_{AC}=8.16\times10^{6}\text{ bps}$
+
 

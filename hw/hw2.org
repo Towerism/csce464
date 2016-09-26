@@ -63,5 +63,3 @@
       1) $T_{AB}=C_{AB}P=8165706\text{ bps}$
       2) $T_{BC}=C_{BC}(P-1)=8166950\text{ bps}$
       2) $T_{AC}=8.16\times10^{6}\text{ bps}$
-
-

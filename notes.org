@@ -77,6 +77,10 @@
 - Notice the 20.0 term in the path-loss += statements. This can be broken down
   to $2\times10.0$. Then it is clear that the $2$ can be mapped to $\alpha$.
 - Plot the with/with-out variance simulations on the same graph.
+*** HW3 Notes
+- Why isn't busy tone practical
+  - You have a single radio which cannot transmit and listen simultaneously
+  - You can bump up the number of radios, but that is expensive
 ** (Lecture 1) Wireless Communication and Mobility
 *** Aspects of mobility
 **** user mobility: users communicate "anytime, anywhere, with anyone"
@@ -592,9 +596,13 @@ typically utilize the whole stack.
   can request say 30 packets at a time.
 - RTS = Request-To-Send
 - CTS = Clear-to-Send
+- This can facilitate a sort of virtual carrier sense
+  - Both the RTS and CTS packets can contain information that let other stations
+    know to stay quiet for a certain amount of time denoted within the packet
+  - Good to use RTS-CTS when data packets are large and collisions are frequent
 ******** Exchange example
 - A sends TS to B
 - Duration of proposed transmission specified in RTS
 - B responds with CTS to acknowledge receipt of RTS
 - Host A sends data to B on receipt of CTS
-- Other hosts overhearing RTS keep quiet for duration of proposed transmission 
+- Other hosts overhearing RTS keep quiet for duration of proposed transmission

@@ -1,0 +1,67 @@
+#+AUTHOR: Martin Fracker
+#+TITLE: HW2
+
+1) 
+   1) Because the receiver must send an acknowledgement, the total amount of time
+      spent transmitting packets is $2L$ and the total amount of propagation delay
+      will be $2\tau$. Therefore, the window of vulnerability, that is the window
+      of time that collision can occur, is $2L + 2\tau$.
+   2) It is called synchronization. It reduces the window of probability to 1 slot.
+   3) Lowering the CS threshold decreases spatial reuse and raises interference
+      due to the high probability of collision. Conversely, raising the CS
+      threshold increases spatial reuse and lowers interference due to a lower
+      probability of collision.
+   4) A hidden terminal problem occurs when a node $X$ is transmitting to a node
+      $Y$. A node $V$ senses the transmission from $X$ and remains quiet.
+      However, there is another node $W$ which cannot sense the transmission
+      from $X$ due to environmental factors. Because $W$ does not realize $X$ is
+      transmitting it feels free to transmit causing interference at node $Y$.
+      In ths case $W$ and $X$ and hidden terminals from each other.
+   5) Firstly, due to attenuation the received signal is dominated by the transmitted
+      signal. Secondly, because a terminal generally can't talk and listen at the same
+      time it requires feedback from the receiver to detect a collision.
+   6) Firstly, busy-tone requires a terminal to talk and listen simultaneously and thus
+      have more than one antenna. Secondly, it is difficult to guarantee
+      similarity between the path-gains of the two channels making it possible
+      for two nearby nodes to interfere with each other despite there being busy tones.
+   7) No. Assume there are three nodes $A$, $B$, and $C$. $A$ and $B$ exchange
+      RTS and CTS, while $C$ being in the middle for some reason does not
+      notice. $C$ could start transmitting while $B$ tries to transmit the
+      acknowledgement. If there had been PCS, $C$ could have stayed quiet.
+2) Probability that exactly one of the 3 nodes transmits successfully is the
+   probability that at least one node transmits while the other 2 nodes do not:
+   $(p+p+p)(1-p+1-p)=3p2(1-p)$. Probability that a particular node successfully
+   transmits is the probability of one node transmitting while the other nodes
+   stay quiet: $p2(1-p)$ which happens to be the same probability of a
+   particular node not transmitting successfully whith other 2 nodes do. Then
+   the probability that a given node succeeds for the first time is the
+   probability that a particular node fails to transmit three times in a row and
+   succeeds the fourth time: $2p(1-p)2p(1-p)2p(1-p)p(1-p)2=4p^4(1-p)^4$. The
+   probability that some node succeeds in slot 2 is: $3p(1-p)2$. The probability
+   that the first success occurs in slot 4 is the probability that a collision
+   occurs three times in a row and then successful transmission occurs the
+   fourth time: $(3p+2p(1-p))^3(p(1-p)2)$. The efficiency is given by the
+   probability of successful transmission: $3p(1-p)2$.
+3) 
+   1) $I_{CB}=P_tg_{CB}\leq\frac{P_{CS}}{g_{AC}}g_{CB}=P_{CS}\frac{g_{CB}}{g_{AC}}$
+   2) $I_{CB}=P_Cg_{CB}\leq P_{CS}\frac{g_{CB}}{g_{AC}}$
+   3) $P_C\leq\frac{P_{CS}}{g_{AC}}$
+   4) $I_{AB}=(P_C)^kg_{AB}\leq
+      P_{CS}\frac{g_{AB}}{g_{CA}}=P_{CS}\frac{g_{CB}}{g_{AC}}\geq I_{CB}$
+4) 
+=nodes.input=
+#+BEGIN_EXAMPLE 
+0  0 (0,  0, 0)
+1  0 (100, 0, 0)
+2  0 (0, 0, 0)
+#+END_EXAMPLE
+=app.conf=
+#+BEGIN_EXAMPLE
+FTP 0 1 10 150S
+TELNET 2 3 10S 150S
+
+#   s d  n     S   I    B  E
+CBR 0 1  10000 512 3.2S 0S 100S
+CBR 2 1  10000 512 0.8S 0S 100S
+#+END_EXAMPLE
+[[file:chart.pdf]]

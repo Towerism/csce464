@@ -1,0 +1,12 @@
+#
+# NODE-PLACEMENT-FILE
+# Format: nodeAddr 0 (x, y, z)
+# The second parameter is for the consistency
+# with the mobility trace format.
+#
+
+0  0 (0,  0, 0)
+1  0 (100, 0, 0)
+2  0 (0, 0, 0)
+
+

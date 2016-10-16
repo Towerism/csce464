@@ -1,0 +1,40 @@
+No.     Time                       Source                Destination           Protocol Length Info
+    361 2016-10-09 16:00:34.499514                       Azurewav_e0:9a:ae (RA) 802.11   40     Clear-to-send, Flags=........C
+
+Frame 361: 40 bytes on wire (320 bits), 40 bytes captured (320 bits)
+    Arrival Time: Oct  9, 2016 16:00:34.499514000 CDT
+    Epoch Time: 1476046834.499514000 seconds
+    [Time delta from previous captured frame: 0.051826000 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 7.584742000 seconds]
+    Frame Number: 361
+    Frame Length: 40 bytes (320 bits)
+    Capture Length: 40 bytes (320 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: radiotap:wlan]
+Radiotap Header v0, Length 26
+    Header revision: 0
+    Header pad: 0
+    Header length: 26
+    Present flags
+    MAC timestamp: 289669551
+    Flags: 0x12
+    Data Rate: 2.0 Mb/s
+    Channel frequency: 2442 [BG 7]
+    Channel type: 802.11b (0x00a0)
+    SSI Signal: -31 dBm
+    Antenna: 0
+    RX flags: 0x0000
+IEEE 802.11 Clear-to-send, Flags: ........C
+    Type/Subtype: Clear-to-send (0x1c)
+    Frame Control: 0x00C4 (Normal)
+        Version: 0
+        Type: Control frame (1)
+        Subtype: 12
+        Flags: 0x0
+    Duration: 98
+    Receiver address: Azurewav_e0:9a:ae (94:db:c9:e0:9a:ae)
+    Frame check sequence: 0x25e6a560 [correct]
+        [Good: True]
+        [Bad: False]

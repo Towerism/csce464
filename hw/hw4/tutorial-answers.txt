@@ -1,0 +1,9 @@
+Different Protocols:
+HTTP, NCP, TCP, OCSP, ARP, ICMP, TLSV1.2, TLSV1
+
+time difference: approximately 0.06 seconds
+
+gaia internet address: 128.119.245.12
+our internet address: 192.168.0.163
+
+When printing, we received an error message regarding 'broken pipe'.  We saved output to file instead and it should be attached.

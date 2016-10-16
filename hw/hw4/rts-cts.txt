@@ -1,0 +1,7 @@
+Capture an RTS-CTS:
+Channel Frequency: 2.457 GHz
+Frame Length: 46 bytes
+Header Length: 26 bytes
+Channel Type: 802.11B
+SSI signal: -33 dBm
+Type/Subtype of Frame: Request-to-send(0X1B)

@@ -1,0 +1,41 @@
+No.     Time                       Source                Destination           Protocol Length Info
+    365 2016-10-09 16:03:39.589761 Netgear_39:97:4c (TA) Azurewav_e0:9a:ae (RA) 802.11   46     Request-to-send, Flags=........C
+
+Frame 365: 46 bytes on wire (368 bits), 46 bytes captured (368 bits)
+    Arrival Time: Oct  9, 2016 16:03:39.589761000 CDT
+    Epoch Time: 1476047019.589761000 seconds
+    [Time delta from previous captured frame: 0.001593000 seconds]
+    [Time delta from previous displayed frame: 0.001717000 seconds]
+    [Time since reference or first frame: 8.103985000 seconds]
+    Frame Number: 365
+    Frame Length: 46 bytes (368 bits)
+    Capture Length: 46 bytes (368 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: radiotap:wlan]
+Radiotap Header v0, Length 26
+    Header revision: 0
+    Header pad: 0
+    Header length: 26
+    Present flags
+    MAC timestamp: 474757771
+    Flags: 0x10
+    Data Rate: 24.0 Mb/s
+    Channel frequency: 2442 [BG 7]
+    Channel type: 802.11g (pure-g) (0x00c0)
+    SSI Signal: -27 dBm
+    Antenna: 1
+    RX flags: 0x0000
+IEEE 802.11 Request-to-send, Flags: ........C
+    Type/Subtype: Request-to-send (0x1b)
+    Frame Control: 0x00B4 (Normal)
+        Version: 0
+        Type: Control frame (1)
+        Subtype: 11
+        Flags: 0x0
+    Duration: 188
+    Receiver address: Azurewav_e0:9a:ae (94:db:c9:e0:9a:ae)
+    Transmitter address: Netgear_39:97:4c (84:1b:5e:39:97:4c)
+    Frame check sequence: 0x1da0c310 [correct]
+        [Good: True]
+        [Bad: False]

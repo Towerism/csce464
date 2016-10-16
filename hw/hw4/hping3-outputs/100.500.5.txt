@@ -1,0 +1,4 @@
+
+--- 127.0.0.1 hping statistic ---
+59922 packets tramitted, 60000 packets received, 0% packet loss
+round-trip min/avg/max = 0.0/3.6/1001.9 ms

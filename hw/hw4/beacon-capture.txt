@@ -1,0 +1,12 @@
+Channel Frequency: 2457 (GHz?)
+
+Frame Length: 161 bytes
+Header Length: 26 bytes(?)
+
+Channel Type: 802.11B
+SSI signal: -25 dBm
+
+Source MAC address: 841B5E39AA48
+Dest Mac  address: FFFFFFFFFFFF
+
+Beacon Interval: 0.1024 seconds

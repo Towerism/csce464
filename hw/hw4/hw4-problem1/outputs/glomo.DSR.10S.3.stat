@@ -1,0 +1,15 @@
+Node:      1, Layer:    AppCbrClient, (0) Total number of packets sent: 1000
+Node:      2, Layer:    AppCbrClient, (0) Total number of packets sent: 1000
+Node:      3, Layer:    AppCbrClient, (0) Total number of packets sent: 1000
+Node:      4, Layer:    AppCbrClient, (0) Total number of packets sent: 1000
+Node:      5, Layer:    AppCbrClient, (0) Total number of packets sent: 1000
+Node:      6, Layer:    AppCbrServer, (0) Average end-to-end delay [s]: 0.145941034
+Node:      6, Layer:    AppCbrServer, (0) Total number of packets received: 689
+Node:      7, Layer:    AppCbrServer, (0) Average end-to-end delay [s]: 0.367066815
+Node:      7, Layer:    AppCbrServer, (0) Total number of packets received: 463
+Node:      8, Layer:    AppCbrServer, (0) Average end-to-end delay [s]: 0.013502372
+Node:      8, Layer:    AppCbrServer, (0) Total number of packets received: 958
+Node:      9, Layer:    AppCbrServer, (0) Average end-to-end delay [s]: 0.048510938
+Node:      9, Layer:    AppCbrServer, (0) Total number of packets received: 813
+Node:     10, Layer:    AppCbrServer, (0) Average end-to-end delay [s]: 0.084697256
+Node:     10, Layer:    AppCbrServer, (0) Total number of packets received: 799

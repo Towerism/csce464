@@ -1,0 +1,345 @@
+* Wireless basics
+** Design
+- Physical -> data link -> network -> transport -> application
+- (detect medium) -> (establish link and transmit packets to specified router)
+  -> (choose best route) -> (ECC, encryption/decryption, convert to/from
+  application, connection management) -> (define data to send)
+** Challenges:
+- Upredictable noise and interference
+- Variable channel conditions
+- Variable network topology
+- Variabl etraffic pattern and requirements
+- Spatial reuse
+- Diversity
+  - Each antenna may have different connection strength
+  - Each user has different connection strength
+** Types of networks
+- Infrastructure based: routers connect to network connects to internet
+- AdHoc: Devices connect to each other
+- Hybrid: Devices connect to each other, connect to router, connect to network,
+  connect to internet.
+** Protocols
+- Protocol: set of rules
+- Network Architecture: set of protocols for exchange of information
+- Encapsulation: Adding headers by various network layers
+** Error Correction Codes
+- ECC: Can detect/correct errors
+- (n, k) code: k bits of data, n-k checkbits
+- Hamming distance between two code words is number of bits by which they differ
+- Distance of a code: minimum hamming distance between 2 code words
+- (7, 4) can detect up to 2bit errors, but correct none, or correct single bit errors
+- (8, 4) can detect up to 3 bit errors, but correct none, or correct single
+  bit and detect 2 bit errors
+** Modulation
+- Pulse $b(t)$ of duration $T$
+  - 0: $s_0(t)=-b(t)$
+  - 1: $s_1(t)=b(t)$
+- Baseband is superimposed on carrier, multiply baseband by carrier
+  - $W_i(t)=A_ib(t)\cos(2\pi f_ct))$
+** AWGN (Additive White Gaussian Noise)
+- Additive: noise added to signal of interest
+- White: noise power spectral density is flat, independent of $f$
+- Process: noise at each time is a random variable
+- Gaussian: noise at time $t$ is a Gaussian random variable
+** Converting to decibels
+- $\text{dBW}=10\log_{10}P$, $P$ is in watts 
+- $\text{dBm}=10\log_{10}P$, $P$ is in milliwatts
+** Transmission
+- Error probability can be reduced by increasing energy per bit
+- Channel capacity: best achievable rate of reliable information delivery (bps)
+  - $C=W\log_2(1+\frac{P}{N_0W})$
+  - $SNR = 10\log_10(\text{Signal power}/\text{Noise power})$
+  - $SINR = 10\log_10(\text{Signal power}/(\text{Interference}+\text{Noise power})$
+- Path gain is power received over power sent
+- Path loss is the inverse of the gain
+- Received power is always less than transmit power
+- Large scale path loss is average channel conditions, small scale is variations
+  due to fading
+- Fading is caused by multiple paths or movement of objects
+  - Rayleigh: Many paths from transmitter to receiver, none dominant
+  - Ricean: Dominant path present, along with others
+- Free space propagation: $P_r=k\frac{P_s}{d^2}$
+- Two-ray ground propagation: $P_r(d)=P_r(d_0)\frac{d_0^4}{d^4}$
+- Log distance propagation: $P_r(d)=P_r(d_0)\frac{d_0^a}{d^a}$
+- Log-normal shadowing model: average large scale loss at $d$ plus gaussian
+  random variable
+- Bandwidth: measure of amount of spectrum occupied by a signal transmitted on a channel
+- Capacity: maximumm possible rate of information delivery
+- Transmission rate: rate at which information is transmitted on channel
+- Throughput: rate at which data is reliably delivered between pairs of nodes
+** Formulas To recognize
+- $x(t)=\int_{-\infty}^{+\infty} X(f)e^{j2\pi ft}df$
+  - $x(t)$ time domain
+  - $X(f)$ frequency domain, it is also the Fourier transform of $x(t)$
+  - $e^{j2\pi ft}$ conversion factor
+- $E_x=\int_{t_1}^{t_2}\|x(t)\|^2dt$
+  - Energy content of $x(t)$ (the time domain)
+- $P_x=\int_{-\infty}^{+\infty}$
+  - $S_x$ power spectral density
+* Distributed Medium access control
+** Performance
+- Depends on
+  - Channel properties
+  - Physical capabilities
+    - Single interface
+    - One packet at a time
+    - One channel at a time
+    - Antenna diversity
+** Protocols
+*** Centralized
+- A designated host is responsible for coordinating access
+- Not of immediate interest to us
+*** Distributed
+- No single host responsible for access
+**** Coordinated access
+- Each host is somehow "scheduled" to transmit in certain intervals of time
+- Schedule chosen to avoid excessive interference between simultaneous transmissions
+**** Random access
+- Each host "randomly" decides when to transmit
+**** "Basic" Medium Access Control (MAC)
+- Based on Aloha: transmit: transmit packet immediately (if not trnasmitting
+  another packet already)
+- Cons
+  - No provision for reliability
+  - No detection of collisions
+- Window of vulnerability is $2L$ where $L$ is the size of a slot
+**** Slotted Aloha
+- Synchronized slot boundaries decreases vulnerability to $1L$
+- With propgation delay $\leq \tau$, slot size $L+\tau$ to ensure vulnerability
+  of 1 slot
+- With clock skew $\leq \mu$, slot size $L + \tau+\mu$ to ensure window of
+  vulnerability of 1 slot
+***** Performance
+- Assuming $n$ slots
+- When $n\rightarrow\infty$ optimal throughput approaches $1/e=0.36
+- Compare this to unslotted where optimal throughput approaches $1/(2e)$
+**** Carrier Sensing
+***** Carrier Sense Multiple Access (CSMA)
+- Listen before you talk
+- A host may transmit only if the channel is sensed as idle
+***** Endergy detection
+- Potential implementation
+  - Sample the signal periodically
+  - Sum the square of the sampled values
+  - If sum exceeds a threshold, signal present
+- Requires non-zero delay to correctly sense the channel status
+- Another possibility
+  - Detect transition from idle to busy, and vice-versa, instead of presence of
+    a signal
+****** Approximation
+- Implementation using Carrier Sense Threshold (PCS)
+- If received power $<$ CS threshold $\rightarrow$ Channel idle
+- Else channel busy
+****** Cons
+- accuracy also affected by noise and interference
+- Non-determistic due to presence of noise
+***** Trade-off
+- Large carrier sense threshold
+  - More transmitters
+  - Greater spatial reuse and more interference
+***** Impact of CS Threshold on Interference
+- $P_tg_{AC}\leq P_{CS} \Rightarrow P_t\leq\frac{P_{CS}}{g_{AC}}$
+- Interference $I_{CB}=P_tg_{CB}\leq\frac{P_{CS}}{g_{AC}}g_{CB}=P_{CS}\frac{g_{CB}}{g_{AC}}$
+***** Feature Detection
+- Detect a "well-known" waveform to know if a transmission is taking place
+  - Preamble
+- Trade-off between complexity and accuracy of sensing with energy detection and
+  feature detection
+**** Hidden Terminal
+- Collisions may occur despite carrier sensing
+- Smaller carrier sensing can help but increases the incidence of exposed terminals
+- Cannot eliminate all collisions using carrier sensing
+- Trade-off between hidden and exposed terminals
+**** Collision Detection
+***** Ethernet
+- Ethernet uses carrier sensing and collision detection (CSMA/CD)
+- Transmitter also listens to the channel
+- M.is match between transmitted and received signal indicates mismatch
+- Stop transmitting immediately once collision is detected, reduces the loss on
+  a collision
+***** Wireless
+- Receiving while transmitting: received signal dominated by transmitted singal
+- Collision occurs at receiver, not the transmitter
+- Collision detection difficult at the transmitter without feedback from the receiver
+**** Collision Avoidance
+- Use mechanism to reduce occurence of collisions
+- For collision to occur, transmissions musts overlap in time
+- Two types of overlapping transmissions:
+  - Simultaneous
+  - Concurrent
+    - Overlapping transmissions, which are not simultaneous, are said to be _concurrent_
+***** Parameter $\delta$
+- Worst case propgation delay $\tau$
+- Worst case carrier sensing delay $\sigma$
+- $\delta=\tau+\sigma$
+***** Concurrent Transmissions
+- Simultaneous and concurrent transmissions desirable if they do not cause too
+  much interference to ongoing transmissions
+  - Trade off between spatial reuse and intelligence
+**** Reliability
+- Forward error correction and re-transmit
+- Retransmission protocol (stop and wait)
+  - Send packet
+  - Start timeout interval, and
+  - Wait for ACK
+  - If no ACK within timeout interval, retransmit
+- Overhead of collisions is function of cost of collisions and frequency of collisions
+**** Control packets
+- RTS - Duration of proposed transmission specified
+- CTS - Acknowledge receipt of RTS
+- Other hosts overhearing RTS keep quiet for duration of proposed transmission
+- Better to use RTS-CTS if data packets are large and collisions are frequent
+- It reduces collision cost due to simultaneous transmissions
+- If data packets are too small, sending RTS-CTS is not beneficial
+  - So send RTS-CTS only for data packets with size $>$ RTS-threshold
+**** Solutions for hidden terminals
+- Busy tone
+- Virtual Carrier sensing (RTS/CTS)
+  - Between a pair of hosts $A$ and $B$
+  - Host $B$ transmit busy-tone while receiving the data
+  - Other hosts defer transmission if received busy-tone power exceeds threshold $P_{CS}$
+  - However, if $C$ transmits even though $B$ is sending $A$ busy tone, then
+    - $P_tg_{BC}\leq P_{CS}$
+  - Sensing threshold from busy-tone P_{CS} threshold is a good bound on the interference
+    which can be controlled by manipulating the P_{CS} threshold.
+***** Issues
+- Overhead of spectrum used from busy-tone
+- Differences in channel gain of data and busytone channel
+* Virtual Carrier Sensing (RTS/CTS)
+** Basic RTS/CTS
+- RTS specifies duration of transmission
+  - Sent by the Sender
+- CTS also includes the duration
+  - Sent by the Receiver
+- Any host hearing RTS or CTS will stay silent
+- A third node may not receive RTS and still cause collision with Ack reception
+  at the sender.
+- Assume SINR-threshold model
+- SINR $\beta$ necessary for reliable delivery
+- SINR for RTS reception at a third node $C$ is upper bounded as $SINR_C\leq P_tg_{AC}/N$
+- If $C$ transmits while $A$ is receiving an Ack from $B$, $SINR$ for Ack
+  reception at $A$ is upper bounded as $SINR_A\leq\frac{P_tg_{BA}}{P_tg_{CA}+N}$
+** Modification
+- Greater protection form interference
+- Reduce book-keeping with multiple nearby transmitters
+- For a third node which hears all of RTS, CTS and Ack, in addition for being
+  silent for the duration of the CTS and Ack packets, it will also be silent for
+  the duration of data.
+- For a node which is a hidden terminal and does not hear the RTS packet, but
+  rather only hears the CTS and Ack packets, will now not only remain silent for
+  the duration of data but also the duration of Ack.
+** Physical and Virtual CS
+- PCS and VCS can be used simultaneously
+- Channel assumed idle ony if _both_ PCS and VS indicate that the channel is
+  idle
+** p-Persistence
+- Carrier Sense does not eliminate collisions altogether (e.g. simultaneous transmission)
+- *A mechanism is needed to reduce collision probability*
+- A dialog may consist of
+  - Data
+  - Data-Ack
+  - RTS-CTS-Data-Ack
+- Dialog begins at a valid transmission opportunity. With physical carrier
+  sense, we need to define this further.
+- Recall: slotted access used slot size = packet size
+- Therefore minimize packet size (this still can't prevent two nodes from
+  transmitting simultaneously)
+- At each _valid_ transmission opportunity, a host may attempt to transmit a
+  packet only with probability $p$.
+- Slot size $\delta=\tau+\sigma$
+  - Recall:
+    - $\tau$ is propagation delay
+    - $\sigma$ is carrier sense delay
+- Back-of-the-envelope analysis
+  - Consider $n$ nodes that can sense each other
+  - $p$ = access probability for each slot
+    - $P_{success}=np(1-p)^{n-1}$
+    - $P_{none}=(1-p)^n$
+    - $P_{collision}=1-P_{success}-P_{none}$
+- Duration required for a transmission or collision:
+  - Data length + slot size ($L+\delta$)
+  - $L+\tau+\sigma$
+- Efficiency of channel access (the fraction of time, for which data is
+  transmitted reliably):
+  - $\frac{P_{success}L}{P_{none}\delta+(1-P_{none})(L+\delta)}=\frac{P_{success}L}{\delta+(1-P_{none})L}$
+** Backoff Intervals
+- Skip a bounded number of valid opportunities before transmitting a packet
+- Initialize a counter by a backoff interval chosen uniformaly in range [Bmin, Bmax]
+- Decrement counter after each slot in which channel is idle
+- Transmit on a valid opportunity if counter is 0
+** Responding to packet loss
+- Packet loss may occur from simultaneous or concurrent transmission for example
+- Reduce simultaneous transmission by reducing access probability
+- Achieve this by increasing the range of the backoff interval
+- E.g. exponential backoff $[0, cw-1]\rightarrow[0, 2cw-1]$ (for contention
+  window $cw$)
+- A large $cw$ leads to larger overhead
+- A small $cw$ leads to more collisions
+* IEEE 802.11
+** Implementation
+- Check medium
+- If medium free for IFS, send data
+- If medium busy, wait for free IFS, start a countdown for random back off
+- If medium occupied during backoff, pause backoff
+** Terms
+- Station: terminal with access mechanisms to the wireless medium and radio
+  contact to the access point
+- Basic Service Set: Group of stations using the same radio frequency
+- Access point: station integrated in the the wireless LAN and the distribution system
+- Portal: bridge to other (wired) networks
+- Distribution system: interconnection network to form on logical network based
+  on several BSS
+- Channels: 11 in US, 13 in Europe, 14 in Japan
+** Distributed Coordination Function (DCF)
+- PCS and VCS (RTS-CTS)
+- Contention window ($cw$): backoff chosen uniformly $[0,cw-1]$
+- Exponential backoff after a packet loss
+- Contention window reset to $CW_{min}$ on a successful transmission
+** Priorities
+- defined through different inter frame spaces (IFS)
+- no guaranteed, hard priorities
+- SIFS (Short IFS)
+  - Highest priority, for ACK, CTS, polling response
+- PIFS (PCS IFS)
+  - medium priority, for time-bounded service using PCF (point coordination function)
+- DIFS (DCF IFS)
+  - Lowest priority, for asynchronous data service
+** Wireless MAC
+- Distributed and centralized MAC components
+  - DCF
+    - CSMA/CA (carrier sense multiple access collision avoidance) protocol
+    - Suitable for multi-hop ad hoc networking
+  - PCF
+- Inter-frame spacing: SIFS and DIFS
+*** Traffic services
+- Asynchronous data service: support of broadcast and multicast, exchange on
+  "best-effort"
+- Time bounded service (optional): implemented using PCF
+*** Access methods
+- 802.11-DCF CSMA/CA
+  - Collision avoidance with randomized back-off mechanism
+  - Minimum distance between consecutive packets
+  - ACK packet for acknoledgements (not for broadcasts)
+  - RTS/CTS (optional): avoid hidden terminal problem
+  - PCF (optional): access point polls terminals according to a list
+    - should guarantee a maximum access delay
+  - Beacon can be used for time synchronization
+** DCF
+- Uses RTS-CTS to avoid hidden terminal problem
+  - Any overhearing of either packet causes that node to stay quiet for duration
+    of the dialog
+- Uses ACK for reliability
+  - For the duration of data, other nodes stay quiet to avoid interference
+    during ACK
+** Unicast Packets
+- Station waits for DIFS before sending
+- Receiver waits
+- If station does not receive Ack, retransmits after sizeof(data) + SIFS + ACK +
+  DIFS time
+** Fragmentation
+- Wait SIFS after CTS,
+- Transmit fragment,
+- Wait SIFS,
+- Receive Ack,
+- Wait SIFS,
+- Send Fragment 2, and repeat

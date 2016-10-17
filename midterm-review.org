@@ -74,7 +74,7 @@
   - $e^{j2\pi ft}$ conversion factor
 - $E_x=\int_{t_1}^{t_2}\|x(t)\|^2dt$
   - Energy content of $x(t)$ (the time domain)
-- $P_x=\int_{-\infty}^{+\infty}$
+- $P_x=\int_{-\infty}^{+\infty}S_x(f)$
   - $S_x$ power spectral density
 * Distributed Medium access control
 ** Performance

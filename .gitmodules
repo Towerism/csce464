@@ -1,0 +1,6 @@
+[submodule "hw/hw5/distributed-power-control-simulator"]
+	path = hw/hw5/distributed-power-control-simulator
+	url = git@github.com:towerism/distributed-power-control-simulator
+[submodule "hw/hw5/rate-control-simulation"]
+	path = hw/hw5/rate-control-simulation
+	url = git@github.com:towerism/rate-control-simulation

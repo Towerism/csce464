@@ -6,11 +6,12 @@
    constant $w_j>1$ such that $w_j\sqrt{r_j}>\sqrt{r_k}$.
 2) 
    1) See Figure [[fig:30-successes]] for the first 30 successes.
-   2) See Table [[tab:bonus-2]] for the results 1000 transmission attempts.
+   2) See Table [[tab:bonus-2]] for the results 1000 transmission attempts. To run
+      the script, execute =./p1.sh=
 3) 
    1) See Table [[tab:4-times]] for the powers of nodes A and C.
    2) See Figure [[fig:9-iterations]] for the result of running the distributed
-      power control simulation for 9 iterations.
+      power control simulation for 9 iterations. To run the script, execute =./p3.sh=
 #+CAPTION: The first 30 successful transmissions.
 #+NAME: fig:30-successes
 [[./prob2.jpg]]

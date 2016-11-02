@@ -1,0 +1,30 @@
+#+AUTHOR: Martin Fracker
+#+TITLE: HW5
+
+1) The selection of $w_j$ creates the proportional relationship  $r_j\propto
+   w_j$. Therefore, if we normally have $\sqrt{r_j} <\sqrt{r_k}$, there is a
+   constant $w_j>1$ such that $w_j\sqrt{r_j}>\sqrt{r_k}$.
+2) 
+   1) See Figure [[fig:30-successes]] for the first 30 successes.
+   2) See Table [[tab:bonus-2]] for the results 1000 transmission attempts.
+3) 
+   1) See Table [[tab:4-times]] for the powers of nodes A and C.
+   2) See Figure [[fig:9-iterations]] for the result of running the distributed
+      power control simulation for 9 iterations.
+#+CAPTION: The first 30 successful transmissions.
+#+NAME: fig:30-successes
+[[./prob2.jpg]]
+#+CAPTION: The result of running the rate control simulation for 1000 transmission attempts.
+#+NAME: tab:bonus-2
+| Successes |  916 |
+| Failures  |   84 |
+| Total     | 1000 |
+#+CAPTION: The powers of nodes A and C at times 1-4.
+#+NAME: tab:4-times
+|   |                      1 |                      2 |                      3 |                      4 |
+|---+------------------------+------------------------+------------------------+------------------------|
+| A | $4.5913\times10^{-5}$ | $7.5205\times10^{-7}$ | $4.0036\times10^{-7}$ | $4.0668\times10^{-7}$ |
+| C | $1.0662\times10^{-5}$ | $2.9285\times10^{-6}$ | $2.8680\times10^{-6}$ | $2.8676\times10^{-6}$ |
+#+CAPTION: The result of running the distributed power control simulation for 9 iterations.
+#+NAME: fig:9-iterations
+[[./prob3.jpg]]

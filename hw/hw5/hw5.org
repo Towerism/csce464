@@ -14,7 +14,7 @@
       power control simulation for 9 iterations. To run the script, execute =./p3.sh=
 #+CAPTION: The first 30 successful transmissions.
 #+NAME: fig:30-successes
-[[./prob2.jpg]]
+[[./figures/prob2.jpg]]
 #+CAPTION: The result of running the rate control simulation for 1000 transmission attempts.
 #+NAME: tab:bonus-2
 | Successes |  916 |
@@ -28,4 +28,4 @@
 | C | $1.0662\times10^{-5}$ | $2.9285\times10^{-6}$ | $2.8680\times10^{-6}$ | $2.8676\times10^{-6}$ |
 #+CAPTION: The result of running the distributed power control simulation for 9 iterations.
 #+NAME: fig:9-iterations
-[[./prob3.jpg]]
+[[./figures/prob3.jpg]]

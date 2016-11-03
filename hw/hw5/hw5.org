@@ -7,11 +7,13 @@
 2) 
    1) See Figure [[fig:30-successes]] for the first 30 successes.
    2) See Table [[tab:bonus-2]] for the results 1000 transmission attempts. To run
-      the script, execute =./p1.sh=
+      the script, execute =./p1.sh= (Note this requires ruby 2.3, linux servers
+      only have ruby 1.8)
 3) 
    1) See Table [[tab:4-times]] for the powers of nodes A and C.
    2) See Figure [[fig:9-iterations]] for the result of running the distributed
-      power control simulation for 9 iterations. To run the script, execute =./p3.sh=
+      power control simulation for 9 iterations. To run the script, execute
+      =./p3.sh= (Note this requires ruby 2.3, linux servers only have ruby 1.8)
 #+CAPTION: The first 30 successful transmissions.
 #+NAME: fig:30-successes
 [[./figures/prob2.jpg]]

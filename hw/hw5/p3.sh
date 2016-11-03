@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-./rate-control-simulation/main.rb
+./distributed-power-control-simulator/main.rb

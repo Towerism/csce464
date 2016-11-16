@@ -1,0 +1,63 @@
+#+TITLE: HW6
+#+AUTHOR: Martin Fracker
+
+1) 
+   1) There could be a directional signal from a third node $C$ interfering at
+      $A$, enabling $B$ to hear any communication from $A$, but preventing $A$
+      from hearing any communication from $B$.
+   2) Yes. Recall that the RREQ is sent in broadcast mode, flooded to all the
+      nodes in the network. Assuming there is a path from $B$ back to $A$ in the
+      network using some intermediary nodes in the set $\{I_1\cdots I_{n-1}
+      I_n\}$, then the RREP would be sent from $B$ through $I_n$, $\cdots$,
+      $I_1$, and finally back to $A$.
+2) 
+   1) Seeking a contradiction, assume that two paths can carry a maximum rate
+      and they are either not disjoint or they are interfering. Well in the case
+      that they are not disjoint, there is an intersection at a particular node
+      which will serve as a bottleneck so the two paths cannot carry a maximum
+      rate. In the case that they are interfering, it is obvious that the two
+      paths cannot carry a maximum rate. Now consider that two paths cannot
+      carry a maximum rate but they are disjoint and non-interfering. This is
+      opposite of the two cases from before so in fact the paths can carry a
+      maximum rate. Because there is contradiction in both considerations, I
+      have proven the theorem.
+   2) 
+   3) 100%; $\dfrac{\text{packetsize}}{\text{path1}\times T+\text{path2}\times T}$
+3) Assuming that the network is dense enough and that every node is connected to
+   every other node directly or indirectly, we will change DSR to send RREQ in
+   unicast mode by randomly selecting one of its neighbors. The sender will
+   assume that it must re-send the packet after a designated time-out period if
+   the receiver does not reply that it already has forwarded the request or that
+   it is now attempting to forward it to the next node. The set of nodes that
+   the request can be forwarded to will be that node's neighbors minus the
+   previous node. Once the destination is reached, the reply will follow the
+   request chain in reverse. It is possible in the worst case that a route
+   involve every node in the network, but if one node is misbehaving it will not
+   prevent the network from eventually finding a route assuming that the
+   misbehaving packet only drops "some" of the packets it is required to send
+   since a node is required to eventually respond with an acknowledgement
+   indicating whether it will forward or it has already forwarded the request.
+4) No. Consider the possibility that along the shortest path there is a very
+   poor link quality between one of the nodes. Then the RREQ will not contain
+   the shortest route.
+5) 
+   1) AODV 445; DSR 50 
+   2) AODV   0; DSR 12 
+   3) AODV    ; DSR    
+   4) AODV    ; DSR    
+   5) AODV    ; DSR    
+6) To efficiently transmit and route traffic between nodes. Ultimately the
+   design goal is to allow two nodes to communicate with each other without
+   worrying about where they are in the network relative to each other. It
+   achieves them by being a part of the protocol stack, enabling other layers to
+   worry about their own problems. I.e. mac only worries about single hop
+   communication. The scenario we are asked to describe is known as the triangle
+   routing problem. Basically, the home agent of the host is in another
+   geographic location causing massive latency when the mobile node might be in
+   the same network to start with. The disadvantages of mobile routing are the
+   "triangle routing" problem, possibly faked care-of-addresses, and the
+   uncertainty involved in making mobile IP compatible with current security
+   measures. The faking of care-of-addresses can be addressed by encrypting the
+   address asymmetrically. The disadvantage with this, however, is the necessity
+   of exchanging public keys before actual communication can begin. Of course
+   you, because the encryption is asymmetric, you avoid middleman attacks.

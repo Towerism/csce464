@@ -11,16 +11,16 @@
       I_n\}$, then the RREP would be sent from $B$ through $I_n$, $\cdots$,
       $I_1$, and finally back to $A$.
 2) 
-   1) Seeking a contradiction, assume that two paths can carry a maximum rate
-      and they are either not disjoint or they are interfering. Well in the case
-      that they are not disjoint, there is an intersection at a particular node
-      which will serve as a bottleneck so the two paths cannot carry a maximum
-      rate. In the case that they are interfering, it is obvious that the two
-      paths cannot carry a maximum rate. Now consider that two paths cannot
-      carry a maximum rate but they are disjoint and non-interfering. This is
-      opposite of the two cases from before so in fact the paths can carry a
-      maximum rate. Because there is contradiction in both considerations, I
-      have proven the theorem.
+   1) Seeking a contradiction, examine CASE 1: assume that two paths can carry a
+      maximum rate and they are either not disjoint or they are interfering.
+      Well in the case that they are not disjoint, there is an intersection at a
+      particular node which will serve as a bottleneck so the two paths cannot
+      carry a maximum rate. In the case that they are interfering, it is obvious
+      that the two paths cannot carry a maximum rate. Now examine CASE 2: that
+      two paths cannot carry a maximum rate but they are disjoint and
+      non-interfering. This is opposite of the two cases from CASE 1 so in fact
+      the paths can carry a maximum rate. Because there is contradiction in both
+      CASE 1 and CASE 2, I have proven the theorem.
    2) 
    3) 100%; $\dfrac{\text{packetsize}}{\text{path1}\times T+\text{path2}\times T}$
 3) Assuming that the network is dense enough and that every node is connected to

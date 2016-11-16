@@ -21,7 +21,15 @@
       non-interfering. This is opposite of the two cases from CASE 1 so in fact
       the paths can carry a maximum rate. Because there is contradiction in both
       CASE 1 and CASE 2, I have proven the theorem.
-   2) 
+   2) Each node will simply listen for other nodes which forward RREQs and if it
+      hears other nodes forwarding the RREQ
+      implies that there is a path involving that node which is interfering with
+      the node which is listening in on other nodes forwarding RREQs. A node
+      will only forward the RREQ if it does not hear another node also
+      forwarding the RREQ. This way there could potentially be multiple RREPs
+      come back, and since none of the nodes which forwarded the RREQ were
+      interfering with each other, then the paths cannot be interfering and the
+      path must be disjoint.
    3) 100%; $\dfrac{\text{packetsize}}{\text{path1}\times T+\text{path2}\times T}$
 3) Assuming that the network is dense enough and that every node is connected to
    every other node directly or indirectly, we will change DSR to send RREQ in

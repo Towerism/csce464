@@ -30,7 +30,9 @@
       could potentially be multiple RREPs come back, and since none of the nodes
       which forwarded the RREQ were interfering with each other, then the paths
       cannot be interfering and the path must be disjoint.
-   3) 100%; $\dfrac{\text{packetsize}}{\text{path1}\times T+\text{path2}\times T}$
+   3) 100%; $\dfrac{\text{packetsize}}{\text{path1}\times T+\text{path2}\times
+      T}$. This assumes that each path is length $L$, where $L$ is the
+      number of nodes in the path.
 3) Assuming that the network is dense enough and that every node is connected to
    every other node directly or indirectly, we will change DSR to send RREQ in
    unicast mode by randomly selecting one of its neighbors. The sender will

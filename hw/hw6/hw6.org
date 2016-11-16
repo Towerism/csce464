@@ -1,5 +1,6 @@
 #+TITLE: HW6
 #+AUTHOR: Martin Fracker
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
 
 1) 
    1) There could be a directional signal from a third node $C$ interfering at

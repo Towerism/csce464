@@ -51,11 +51,45 @@
    poor link quality between one of the nodes. Then the RREQ will not contain
    the shortest route.
 5) 
-   1) AODV 445; DSR 50 
-   2) AODV   0; DSR 12 
-   3) AODV    ; DSR    
-   4) AODV    ; DSR    
-   5) AODV    ; DSR    
+   1) RREQ
+      1) AODV 445; DSR 50 
+      2) AODV   0; DSR 12 
+      3) AODV    ; DSR    
+      4) AODV    ; DSR    
+      5) AODV    ; DSR
+   2) RRER
+      1) AODV: 0
+      2) DSR: 
+         1) nodeSrcError: 7
+         2) nodeDestError: 18
+         3) nodeSrcError: 19
+         4) nodeDestError: 18
+         5) nodeSrcError: 27
+         6) nodeDestError: 19
+         7) nodeSrcError 22
+         8) nodeDestError: 18
+         9) nodeSrcError: 10
+         10) nodeDestError: 18
+         11) nodeSrcError: 15
+         12) nodeDestError: 10
+   3) Paths
+      1) AODV:
+      2) DSR:
+         1) 16, 17, 13, 7, 6
+         2) 16, 15, 17, 13, 7, 6
+         3) 16, 14, 13, 7, 6
+         4) 16, 4, 17, 13, 7, 6
+         5) 16, 15, 19
+         6) 16, 15, 19, 27, 28
+         7) 16, 15, 26, 22, 1
+         8) 16, 15, 19, 6, 28
+         9) 16, 15, 19, 20, 26, 22, 1
+   4) Packets
+      1) AODV:
+      2) DSR: 30 packets total
+   5) Sequence Numbers
+      1) AODV: 0 through 5
+      2) DSR: 0 through 6
 6) To efficiently transmit and route traffic between nodes. Ultimately the
    design goal is to allow two nodes to communicate with each other without
    worrying about where they are in the network relative to each other. It

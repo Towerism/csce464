@@ -1,0 +1,30 @@
+#+TITLE:HW7
+#+AUTHOR:Martin Fracker
+1) Needs to show each step of the algorithm. See tables below.
+2) Straightforward. Recall the network layer discussion about dual routing.
+3) Not reacting too aggressively due to errors may reduce overhead.
+4) 
+   1) Slow start happens when the congestion window follows an exponential-like
+      curve upward. Avoidance is the linear trend upward.
+   2) 
+   3) 
+5) After a data hiatus. Do you continue with the recently used cwd and threshold
+   values, or do you go through the process of slow start all over again?
+
+What is sshtresh? slow-start threshold
+
+| Destination | next-hop | cost |
+|-------------+----------+------|
+| A           | *        |  0   |
+| B           | B        |  4   |
+| C           | D        |  6   |
+| D           | D        |  4   |
+| E           | D        |  10  |
+
+| Destination | next-hop | cost |
+|-------------+----------+------|
+| A           | A        |  4   |
+| B           | C        |  4   |
+| C           | C        |  2   |
+| D           | *        |  0   |
+| E           | C        |  6   |

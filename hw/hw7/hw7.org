@@ -1,6 +1,8 @@
-#+TITLE:HW7
+#+NAME:HW7
 #+AUTHOR:Martin Fracker
-1) Needs to show each step of the algorithm. See tables below.
+1) Rather than displaying umpteen tables, I explain how we get the resulting
+   routing tables in the tables below (Tables
+   [[tab:a-init]], [[tab:a-new]], [[tab:d-init]], and [[tab:d-new]]).
 2) Ack packets will not be subjected to the same congestion that data packets
    may be exposed to making it less likely that the sender will timeout for a
    particular data packet.
@@ -28,6 +30,9 @@
    cwnd back to 100% of the old cwnd in the next round should be fine. This
    solves the problem of normal slow start taking too long, but doesn't
    immediately jump back up to the old cwnd in case the quality of link went down.
+
+#+CAPTION: Initial table for A.
+#+NAME: tab:a-init
 | Destination | next-hop | cost |
 |-------------+----------+------|
 | A           | *        |  0   |
@@ -36,10 +41,32 @@
 | D           | D        |  4   |
 | E           | D        |  10  |
 
+#+CAPTION: Table for A after receiving the distance vector sent by D. The route to B is broken. The routes to C and E all go went through D originally. So the corresponding costs in the distance vector are added to the original cost to D to get the cost in the new table.
+#+NAME: tab:a-new
+| Destination | next-hop | cost |
+|-------------+----------+------|
+| A           | *        |  0   |
+| B           | -        |  -   |
+| C           | D        |  9   |
+| D           | D        |  4   |
+| E           | D        |  11  |
+
+#+CAPTION: Initial table for D
+#+NAME: tab:d-init
 | Destination | next-hop | cost |
 |-------------+----------+------|
 | A           | A        |  4   |
 | B           | C        |  4   |
+| C           | C        |  2   |
+| D           | *        |  0   |
+| E           | C        |  6   |
+
+#+CAPTION: Table for D after receiving the distance vectory sent by A. The route to B is broken. Routes C and E do not go through A, so to determine if they should we compare the old cost to the cost of the route to A plus the corresponding cost in the distance vectory sent by A. If the old cost is bigger, then the new cost is used and the next-hop is set to A. Now A has a cost of 4 at node D. The costs from node A to node C and E advertised in the distance vector sent by A are 3 and 5 respectively. Adding to them 4, we get 7 and 9 which are both larger than the old costs of C and E, so those will not change as a result of the reception of the distance vector sent by A.
+#+NAME: tab:d-new
+| Destination | next-hop | cost |
+|-------------+----------+------|
+| A           | A        |  4   |
+| B           | -        |  -   |
 | C           | C        |  2   |
 | D           | *        |  0   |
 | E           | C        |  6   |

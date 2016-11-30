@@ -7,18 +7,19 @@
 2) Ack packets will not be subjected to the same congestion that data packets
    may be exposed to making it less likely that the sender will timeout for a
    particular data packet.
-3) Faster recovery due to relatively shorter RTT on wireless link $BD$. Not
-   reacting too aggressively due to errors may reduce overhead on wireless link $BD$.
+3) Faster recovery due to relatively shorter RTT on wireless link $BD$. Overall,
+   higher throughput since the slow link is shortened from S-B-D to just B-D,
+   such that S-B is now a highspeed reliable link.
 4) 
-   1) [1,6] slow start
+   1) [1,6], [23,26] slow start
    2) [6,16], [17,22] avoidance
    3) The cwd is cut in half which indicates a triple dupack.
    4) sstresh is initialized to its maximum value, in this example it looks like
       that maximum value is 32 segments
    5) 21 (in otherwords half of what the cwnd was before the triple dupack)
    6) 13 (in otherwords half of what the cwnd was before the timeout)
-   7) The first 63 segments are sent during the first 16 transmission rounds. In
-      the 17th transmission round 33 more segments will be transmitted, one of
+   7) The first 63 segments are sent during the first 6 transmission rounds. In
+      the 7th transmission round 33 more segments will be transmitted, one of
       them being the 70th segment.
    8) cwnd will be set to 4, and ssthresh will save the old cwnd, 8.
 5) An advantage is not having to go through the process of slow start once

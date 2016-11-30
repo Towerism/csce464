@@ -1,5 +1,6 @@
-#+NAME:HW7
+#+TITLE:HW7
 #+AUTHOR:Martin Fracker
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 1) Rather than displaying umpteen tables, I explain how we get the resulting
    routing tables in the tables below (Tables
    [[tab:a-init]]-[[tab:d-new]]).

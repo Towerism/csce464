@@ -52,7 +52,7 @@
 | D           | *        |  0   |
 | E           | C        |  6   |
 
-#+CAPTION: Table for A after receiving the distance vector sent by D. The route to B is broken. The routes to C and E all go went through D originally. So the corresponding costs in the distance vector are added to the original cost to D to get the cost in the new table.
+#+CAPTION: Table for A after receiving the distance vector sent by D. The route to B is broken. The routes to C and E all went through D originally. So the corresponding costs in the distance vector are added to the original cost to D to get the cost in the new table.
 #+NAME: tab:a-new
 | Destination | next-hop | cost |
 |-------------+----------+------|

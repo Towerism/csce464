@@ -18,9 +18,16 @@
       the 17th transmission round 33 more segments will be transmitted, one of
       them being the 70th segment.
    8) cwnd will be set to 4, and ssthresh will save the old cwnd, 8.
-5) After a data hiatus. Do you continue with the recently used cwd and threshold
-   values, or do you go through the process of slow start all over again?
-
+5) An advantage is not having to go through the process of slow start once
+   again. A disadvantage is that the wireless link may have changed in quality
+   increasing the likelihood of massive congestion. To get around this, set the
+   cwnd to 1 and save the old cwnd in sstresh. After the transmission round, increase
+   the cwnd to half of the old cwnd. After the transmission round, increase to
+   75% of the old cwnd. After the transmission round, increase to 87.5% of the
+   old cwnd. Assuming that the link did not change in quality, increasing the
+   cwnd back to 100% of the old cwnd in the next round should be fine. This
+   solves the problem of normal slow start taking too long, but doesn't
+   immediately jump back up to the old cwnd in case the quality of link went down.
 | Destination | next-hop | cost |
 |-------------+----------+------|
 | A           | *        |  0   |

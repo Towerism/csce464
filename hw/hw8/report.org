@@ -1,0 +1,13 @@
+#+AUTHOR: Austin Fisher, Martin Fracker, Nick Maxwell
+#+TITLE: HW8
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+CAPTION: This is what running =airodump-ng= looks like. We only needed it to determine the BSSID.
+[[./screenshots/airodump-ng.png]]
+#+CAPTION: This is what running =airodump-ng-channel= looks like. One of our mistakes involved forgetting to note the station address, so we were initially mistakenly listing the BSSID in two places when on of them should have been the station address.
+[[./screenshots/airodump-ng-channel.png]]
+#+CAPTION: This is what running =aireplay-ng= looks like.
+[[./screenshots/aireplay-ng.png]]
+#+CAPTION: After ee ran =aireplay-ng= for a few minutes, it took us 1 minute to crack the key.
+[[./screenshots/aircrack-1minute.png]]
+#+CAPTION: When we ran =aireplay-ng= slightly longer than previously, the key was cracked instantly.
+[[./screenshots/aircrack-instant.png]]
